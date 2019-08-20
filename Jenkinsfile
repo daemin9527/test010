@@ -65,7 +65,7 @@ pipeline {
         container('go') {
           dir('/home/jenkins/go/src/github.com/daemin9527/test010/charts/test010') {
             sh "jx step changelog --version v\$(cat ../../VERSION)"
-
+            sh "helm init --client-only"
             // release the helm chart
             sh "jx step helm release"
 
